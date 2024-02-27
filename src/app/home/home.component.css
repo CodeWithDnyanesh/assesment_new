@@ -1,0 +1,147 @@
+.tool{
+  background: #CF682F !important;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0px 2px 4px 0px #00000040;
+  display: block;
+
+}
+.tool img{
+  width: 50px;
+  height: 37.96px;
+  top: 22px;
+  left: 41px;
+  position: absolute;
+}
+.step{
+  background: none;
+}
+.example-container{
+  width: 100%;
+  height: 630px;
+}
+.templateMain{
+  justify-content: space-between;
+}
+.CreateTemp img{
+  width: 14px;
+  height: 14px;
+  top: 116px;
+  left: 1230px;
+  margin-right: 10px;
+}
+.example-sidenav{
+  background: #CF682F;
+
+}
+.example-sidenav-content{
+  padding: 20px;
+}
+.mainrow{
+  padding: 12px;
+}
+.steppercolor{
+  color: white !important;
+  background-color: white;
+}
+.navbar{
+  width: 100%;
+  height: 79px;
+  background: #CF682F;
+
+}
+.navbar .navbar-brand img{
+  width: 50px;
+  height: 37.96px;
+  top: 22px;
+  left: 41px;
+
+}
+.sidenav{
+  width: 200px;
+  height: 627px;
+  top: 79px;
+  background: #CF682F;
+
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+label{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: white;
+  font-size: 15px;
+}
+
+input[type="checkbox"]{
+  position: absolute;
+  left: -9999px;
+}
+
+input[type="checkbox"] ~ ul{
+  height: 0;
+  transform: scaleY(0);
+}
+
+input[type="checkbox"]:checked ~ ul{
+  height: 100%;
+  transform-origin: top;
+  transition: transform .2s ease-out;
+  transform: scaleY(1); 
+
+}
+.dropList{
+  padding: 15px;
+}
+
+.dropList li .templatelist{
+  text-align: center;
+  color: white;
+  margin-top: 12px;
+}
+.dropList li .templatelist li:hover{
+  background: #F5A172;
+  
+}
+.dropList li .doclist{
+  text-align: center;
+  color: white;
+  margin-top: 12px;
+}
+.dropList li .doclist li{
+  margin-top: 12px;
+}
+.dropList li .doclist li:hover{
+  background: #F5A172;
+}
+.arrorimg{
+  width: 15px;
+  height: 15px;
+  top: 102px;
+  left: 119px;
+  padding: 5.15px, 2.81px, 4.68px, 2.81px;
+  display: inline-block;
+}
+.search{
+  height: 57px;
+}
+.search img{
+  width: 14px;
+  height: 14px;
+  top: 116px;
+  left: 1230px;
+  margin-right: 10px;
+}
+.logout{
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 24px;
+  cursor: pointer;
+}

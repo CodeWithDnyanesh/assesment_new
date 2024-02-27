@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="topline"></div>
+    <div class="row logosection">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <img class="logo" src="../assets/images/logoipsum-329 1.png" alt="logo">
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row inputSection">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <input class="Username form-control" formControlName="username" type="text" [ngClass]="{ 'is-invalid': submitted && form.get('username') }" placeholder="Username">
+                <input class="Password form-control" formControlName="password" type="password" [ngClass]="{ 'is-invalid': submitted && form.get('password') }" placeholder="Password">
+                <div class="error" *ngIf="submitted && hasInvalidCredentials()">
+                    <p class="errorMsg"><img class="errorImg" src="../assets/images/error-circle 1.png" alt="errorimg">Invalid credentials. Please try again.</p>
+                </div>
+                <button class="btn" type="submit">
+                    <p class="btntext">SIGN IN</p>
+                </button>
+            </form>
+        </div>
+        <div class="col-4"></div>
+        <div class="row forgetsection">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <a class="forgetPass" href="#">Forget Password?</a>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row SocialLogos">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <img class="socialgroup" src="../assets/images/Group.png" alt="Group">
+                <img class="facebooksection" src="../assets/images/Vector.png" alt="facebook">
+                <img class="linkedinlogo" src="../assets/images/linkedin_square 1.png" alt="linkedin">
+                <img class="socialgroup2" src="../assets/images/twitter.png" alt="twitter">
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row copyriteSection">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <p class="copyrightText">© Copyright Dyaz Innovate 2023. All rights reserved.</p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>

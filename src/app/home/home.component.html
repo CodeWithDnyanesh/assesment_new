@@ -1,0 +1,201 @@
+<div>
+  <mat-toolbar class="tool">
+    <div class="row">
+      <div class="col">
+        <img src="../../assets/images/logoipsum.png" alt="logo">
+      </div>
+      <div class="col-8">
+        <mat-stepper class="step" labelPosition="bottom" #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+            <ng-template matStepLabel class="steppercolor">Product Info</ng-template>
+
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup" class="steppercolor">
+            <ng-template matStepLabel>Manage Document</ng-template>
+
+          </mat-step>
+
+          <mat-step [stepControl]="secondFormGroup" class="steppercolor">
+            <ng-template matStepLabel>eCTD Submission</ng-template>
+
+          </mat-step>
+
+          <mat-step [stepControl]="secondFormGroup" class="steppercolor">
+            <ng-template matStepLabel>Validation</ng-template>
+
+          </mat-step>
+          <mat-step class="steppercolor">
+            <ng-template matStepLabel>Dispatch</ng-template>
+         
+          </mat-step>
+        </mat-stepper>
+      </div>
+      <div class="col" style="position: relative;">
+        <mat-icon class="logout" aria-hidden="false" aria-label="Example home icon" fontIcon="logout" routerLink="/"></mat-icon>
+      </div>
+    </div>
+  </mat-toolbar>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+      <ul class="dropList">
+        <li style="margin-bottom: 24px;">
+          <input type="checkbox" id="list-item-1">
+          <label for="list-item-1" class="first">Configuaration<img class="arrorimg" src="../../assets/images/down_arrow 1.png" alt="down_arror"></label>
+          <ul class="templatelist">
+            <li>Templates</li>
+          </ul>
+        </li>
+        <li>
+          <input type="checkbox" id="list-item-2">
+          <label for="list-item-2">Document Prop<img src="../../assets/images/down_arrow 1.png" alt="down_arror"></label>
+          <ul class="doclist">
+            <li>Products</li>
+            <li>Applications</li>
+            <li>Sequences</li>
+          </ul>
+        </li>
+      </ul>
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+      <mat-card>
+        <mat-toolbar class="templateMain">
+          <span>Templates</span>
+          <button mat-flat-button color="warn" class="CreateTemp" (click)="openAddDialog()"><img src="../../assets/images/add-3 3.png"
+              alt="plus">Create Templates</button>
+        </mat-toolbar>
+        <div class="row">
+          <div class="col-9">
+            <div class="row mainrow">
+              <div class="col">
+                <mat-form-field>
+                  <mat-label>Start Date</mat-label>
+                  <input matInput [matDatepicker]="picker1" [formControl]="date">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field>
+                  <mat-label>End Date</mat-label>
+                  <input matInput [matDatepicker]="picker2" [formControl]="serializedDate">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field>
+                  <mat-label>Select an option</mat-label>
+                  <mat-select disableRipple>
+                    <mat-option value="1">Option 1</mat-option>
+                    <mat-option value="2">Option 2</mat-option>
+                    <mat-option value="3">Option 3</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col">
+              <button mat-flat-button color="warn" class="search"><img src="../../assets/images/search-icon 2.png"
+                alt="plus">Search</button>
+              </div>
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+        <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.title }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>State</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.state }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="url">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Url</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.url }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="created_at">
+            <mat-header-cell *matHeaderCellDef mat-sort-header
+              >Created at</mat-header-cell
+            >
+            <mat-cell *matCellDef="let row"> {{ row.created_at }}</mat-cell>
+          </ng-container>
+      
+          <ng-container matColumnDef="updated_at">
+            <mat-header-cell *matHeaderCellDef mat-sort-header
+              >Updated at</mat-header-cell
+            >
+            <mat-cell *matCellDef="let row"> {{ row.updated_at }}</mat-cell>
+          </ng-container>
+      
+          <!-- actions -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+              <button mat-icon-button color="primary" (click)="openAddDialog()">
+                <mat-icon aria-label="Example icon-button with a heart icon"
+                  >add</mat-icon
+                >
+              </button>
+            </mat-header-cell>
+      
+            <mat-cell *matCellDef="let row; let i = index">
+              <button
+                mat-icon-button
+                color="accent"
+                (click)="
+                  startEdit(
+                    i,
+                    row.id,
+                    row.title,
+                    row.state,
+                    row.url,
+                    row.created_at,
+                    row.updated_at
+                  )
+                "
+              >
+                <mat-icon aria-label="Edit">edit</mat-icon>
+              </button>
+      
+              <button
+                mat-icon-button
+                color="accent"
+                (click)="deleteItem(i, row.id, row.title, row.state, row.url)"
+              >
+                <mat-icon aria-label="Delete">delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+      
+        <div
+          class="no-results"
+          [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'"
+        >
+          No results
+        </div>
+      
+        <mat-paginator
+          #paginator
+          [length]="dataSource.filteredData.length"
+          [pageIndex]="0"
+          [pageSize]="10"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+        >
+        </mat-paginator>
+      </mat-card>
+    </div>
+
+  </mat-drawer-container>
+</div>
